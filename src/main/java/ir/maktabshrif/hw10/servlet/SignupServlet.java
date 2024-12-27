@@ -34,8 +34,14 @@ public class SignupServlet extends HttpServlet {
         Validator validator = vf.getValidator();
         Set<ConstraintViolation<UserDTO>> validate = validator.validate(userDTO);
         if (validate.isEmpty()) {
-            userService.signup(userDTO);
-            req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
+            if (!userService.isUserValid(req.getParameter("username"))){
+
+                userService.signup(userDTO);
+                req.getRequestDispatcher("/dashboard.jsp").forward(req, resp);
+            }else {
+                req.setAttribute("Username exist","Username Already exist");
+                req.getRequestDispatcher("/index.jsp").forward(req,resp);
+            }
         } else {
             req.setAttribute("Error", validate.toArray()[0]);
             req.getRequestDispatcher("/index.jsp").forward(req, resp);

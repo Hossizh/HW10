@@ -25,7 +25,7 @@
     </filter>
     <filter-mapping>
         <filter-name>AuthenticateFilter</filter-name>
-        <url-pattern>/LoginServlet</url-pattern>
+        <url-pattern>/dashboard.jsp</url-pattern>
     </filter-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

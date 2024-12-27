@@ -8,4 +8,5 @@ public interface UserRepository {
     void save(User user);
 
     Optional<User>findUser(String username, String password);
+    Optional<User>findUserByUsername(String username);
 }

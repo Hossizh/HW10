@@ -8,4 +8,5 @@ import java.util.Optional;
 public interface UserService {
     void signup(UserDTO userDTO);
     Optional<UserDTO> login(String username, String password);
+    Boolean isUserValid(String username);
 }

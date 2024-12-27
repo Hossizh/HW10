@@ -91,11 +91,11 @@
 <div class="container">
     <h1>Signup</h1>
 
-    <% if (request.getAttribute("Error") != null) { %>
-    <div class="error-message">
-        <%= ((ConstraintViolation) request.getAttribute("Error")).getMessage() %>
-    </div>
-    <% } %>
+<%--    <% if (request.getAttribute("Error") != null) { %>--%>
+<%--    <div class="error-message">--%>
+<%--        <%= ((ConstraintViolation) request.getAttribute("Error")).getMessage() %>--%>
+<%--    </div>--%>
+<%--    <% } %>--%>
 
     <form action="signup" method="post">
         <label for="username">Username</label>
@@ -105,6 +105,8 @@
         <input type="password" id="password" name="password" required>
 
         <input type="submit" value="Sign Up">
+        <small ><%= (request.getAttribute("Username exist") != null ? request.getAttribute("Username exist"): "")%></small>
+        <small><%= (request.getAttribute("Error") != null ? ((ConstraintViolation) request.getAttribute("Error")).getMessage(): "")%></small>
     </form>
 
     <div class="login-link">
